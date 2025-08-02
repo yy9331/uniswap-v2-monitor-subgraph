@@ -2,6 +2,7 @@
   "name": "uni-swap-v2-monitor",
   "license": "UNLICENSED",
   "scripts": {
+    "install-graph-cli": "npm install -g @graphprotocol/graph-cli",
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ uni-swap-v2-monitor",

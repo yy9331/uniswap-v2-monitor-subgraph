@@ -1,0 +1,114 @@
+# Uniswap V2 子图示例查询
+
+# 查询所有交易对
+query GetAllPairs {
+  pairs(first: 10, orderBy: createdAtTimestamp, orderDirection: desc) {
+    id
+    token0
+    token1
+    reserve0
+    reserve1
+    token0Price
+    token1Price
+    volumeUSD
+    txCount
+    createdAtTimestamp
+  }
+}
+
+# 查询特定交易对
+query GetPair($pairId: ID!) {
+  pair(id: $pairId) {
+    id
+    token0
+    token1
+    reserve0
+    reserve1
+    token0Price
+    token1Price
+    volumeUSD
+    txCount
+    createdAtTimestamp
+  }
+}
+
+# 查询最近的交换事件
+query GetRecentSwaps {
+  swaps(first: 20, orderBy: blockTimestamp, orderDirection: desc) {
+    id
+    pair
+    sender
+    amount0In
+    amount1In
+    amount0Out
+    amount1Out
+    to
+    amountUSD
+    blockTimestamp
+    transactionHash
+  }
+}
+
+# 查询代币信息
+query GetToken($tokenId: ID!) {
+  token(id: $tokenId) {
+    id
+    symbol
+    name
+    decimals
+    totalSupply
+    volume
+    txCount
+    pairCount
+  }
+}
+
+# 查询最近的铸造事件
+query GetRecentMints {
+  mints(first: 10, orderBy: blockTimestamp, orderDirection: desc) {
+    id
+    pair
+    sender
+    amount0
+    amount1
+    blockTimestamp
+    transactionHash
+  }
+}
+
+# 查询最近的销毁事件
+query GetRecentBurns {
+  burns(first: 10, orderBy: blockTimestamp, orderDirection: desc) {
+    id
+    pair
+    sender
+    amount0
+    amount1
+    to
+    blockTimestamp
+    transactionHash
+  }
+}
+
+# 查询交易对创建事件
+query GetPairCreatedEvents {
+  pairCreateds(first: 10, orderBy: blockTimestamp, orderDirection: desc) {
+    id
+    token0
+    token1
+    pair
+    blockTimestamp
+    transactionHash
+  }
+}
+
+# 查询交易量统计
+query GetVolumeStats {
+  pairs(first: 10, orderBy: volumeUSD, orderDirection: desc) {
+    id
+    token0
+    token1
+    volumeUSD
+    txCount
+  }
+} 

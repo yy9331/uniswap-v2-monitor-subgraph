@@ -8,3 +8,69 @@ type PairCreated @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+
+type Pair @entity(immutable: false) {
+  id: Bytes!
+  token0: Bytes!
+  token1: Bytes!
+  reserve0: BigInt!
+  reserve1: BigInt!
+  totalSupply: BigInt!
+  token0Price: BigDecimal!
+  token1Price: BigDecimal!
+  volumeUSD: BigDecimal!
+  txCount: BigInt!
+  createdAtTimestamp: BigInt!
+  createdAtBlockNumber: BigInt!
+}
+
+type Token @entity(immutable: false) {
+  id: Bytes!
+  symbol: String!
+  name: String!
+  decimals: BigInt!
+  totalSupply: BigInt!
+  volume: BigDecimal!
+  txCount: BigInt!
+  pairCount: BigInt!
+}
+
+type Swap @entity(immutable: true) {
+  id: Bytes!
+  pair: Bytes!
+  sender: Bytes!
+  amount0In: BigInt!
+  amount1In: BigInt!
+  amount0Out: BigInt!
+  amount1Out: BigInt!
+  to: Bytes!
+  logIndex: BigInt!
+  amountUSD: BigDecimal!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Mint @entity(immutable: true) {
+  id: Bytes!
+  pair: Bytes!
+  sender: Bytes!
+  amount0: BigInt!
+  amount1: BigInt!
+  logIndex: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Burn @entity(immutable: true) {
+  id: Bytes!
+  pair: Bytes!
+  sender: Bytes!
+  amount0: BigInt!
+  amount1: BigInt!
+  logIndex: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

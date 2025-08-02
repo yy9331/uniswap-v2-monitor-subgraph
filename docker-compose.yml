@@ -3,11 +3,11 @@ services:
   graph-node:
     image: graphprotocol/graph-node
     ports:
-      - "8000:8000"
-      - "8001:8001"
-      - "8020:8020"
-      - "8030:8030"
-      - "8040:8040"
+      - "8000:8000" # HTTP queries - 主要查询端口
+      - "8001:8001" # GraphQL playground - 可视化查询界面
+      - "8020:8020" # JSON-RPC admin - 管理接口
+      - "8030:8030" # Index node server
+      - "8040:8040" # Metrics server
     depends_on:
       - ipfs
       - postgres
@@ -19,8 +19,10 @@ services:
       postgres_pass: let-me-in
       postgres_db: graph-node
       ipfs: "ipfs:5001"
-      ethereum: "mainnet:http://host.docker.internal:8545"
+      ethereum: "mainnet:https://mainnet.infura.io/v3/6b6d38b00ee34c9cb96a3a38614c3354"
       GRAPH_LOG: info
+      GRAPH_GRAPHQL_HTTP_PORT: 8000
+      GRAPH_GRAPHQL_WS_PORT: 8001
   ipfs:
     image: ipfs/kubo:v0.17.0
     ports:
