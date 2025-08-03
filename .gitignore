@@ -1,160 +1,217 @@
-# Graph CLI generated artifacts
+# Uniswap V2 Subgraph .gitignore
+# Uniswap V2 子图 .gitignore 文件
+
+# =============================================================================
+# 🏗️ BUILD FILES / 构建文件
+# =============================================================================
+# Graph CLI generated artifacts / Graph CLI 生成的构建文件
 build/
 generated/
 
-# Dependency directories
+# Distribution files / 分发文件
+dist/
+
+# =============================================================================
+# 📦 DEPENDENCIES / 依赖文件
+# =============================================================================
+# Dependency directories / 依赖目录
 node_modules/
 jspm_packages/
 
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Package lock files (optional, recommended to keep) / 包锁定文件（可选，建议保留）
+# package-lock.json
 
-# Optional npm cache directory
-.npm
+# =============================================================================
+# 🐳 DOCKER DATA / Docker 数据
+# =============================================================================
+# Docker data directories / Docker 数据目录
+data/
+docker-data/
+volumes/
 
-# Optional eslint cache
-.eslintcache
+# =============================================================================
+# 🗄️ DATABASE FILES / 数据库文件
+# =============================================================================
+# Graph Node data / Graph 节点数据
+graph-node-data/
 
-# dotenv environment variables file
+# IPFS data / IPFS 数据
+ipfs-data/
+
+# PostgreSQL data / PostgreSQL 数据
+postgres-data/
+
+# =============================================================================
+# 🔧 CONFIGURATION FILES / 配置文件
+# =============================================================================
+# Environment variables (may contain sensitive info) / 环境变量文件（可能包含敏感信息）
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# Testing
-coverage
+# Graph CLI configuration / Graph CLI 配置文件
+.graphrc.yml
+
+# =============================================================================
+# 📝 LOG FILES / 日志文件
+# =============================================================================
+# Log directories and files / 日志目录和文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =============================================================================
+# 🧪 TESTING / 测试文件
+# =============================================================================
+# Test coverage reports / 测试覆盖率报告
+coverage/
 coverage.json
+*.lcov
 
-# Typechain
-typechain
-typechain-types
+# Coverage directory used by tools like istanbul / istanbul 等工具的覆盖率目录
+.nyc_output
 
-# Hardhat files
-cache
+# =============================================================================
+# 💻 IDE AND EDITOR FILES / IDE 和编辑器文件
+# =============================================================================
+# VS Code configuration / VS Code 配置
+.vscode/*
+!.vscode/extensions.json
 
-# Docker data directories
-data/
-docker-data/
-
-# Graph Node data
-graph-node-data/
-
-# IPFS data
-ipfs-data/
-
-# PostgreSQL data
-postgres-data/
-
-# Temporary files
-*.tmp
-*.temp
-.DS_Store
-Thumbs.db
-
-# IDE files
-.vscode/
+# IntelliJ IDEA configuration / IntelliJ IDEA 配置
 .idea/
+
+# Vim temporary files / Vim 临时文件
 *.swp
 *.swo
 *~
 
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
-*.lcov
-
-# nyc test coverage
-.nyc_output
-
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
-
-# Next.js build output
-.next
-
-# Nuxt.js build / generate output
-.nuxt
-dist
-
-# Gatsby files
-.cache/
-public
-
-# Storybook build outputs
-.out
-.storybook-out
-
-# Temporary folders
-tmp/
-temp/
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Other editor files / 其他编辑器文件
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# Local environment files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# =============================================================================
+# 🖥️ OPERATING SYSTEM FILES / 操作系统文件
+# =============================================================================
+# macOS system files / macOS 系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 
-# Graph CLI configuration
-.graphrc.yml
+# Windows system files / Windows 系统文件
+Thumbs.db
+ehthumbs.db
 
-# Docker volumes
-volumes/
+# =============================================================================
+# 🔄 CACHE AND TEMPORARY FILES / 缓存和临时文件
+# =============================================================================
+# npm cache / npm 缓存
+.npm
 
-# Backup files
+# ESLint cache / ESLint 缓存
+.eslintcache
+
+# Microbundle cache / Microbundle 缓存
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Parcel bundler cache / Parcel 打包器缓存
+.cache
+.parcel-cache
+
+# Temporary files / 临时文件
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Runtime data / 运行时数据
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# =============================================================================
+# 📦 PACKAGE MANAGER FILES / 包管理器文件
+# =============================================================================
+# Yarn integrity file / Yarn 完整性文件
+.yarn-integrity
+
+# Output of 'npm pack' / npm pack 输出
+*.tgz
+
+# Optional REPL history / 可选的 REPL 历史
+.node_repl_history
+
+# =============================================================================
+# 🏗️ FRAMEWORK BUILD OUTPUTS / 框架构建输出
+# =============================================================================
+# Next.js build output / Next.js 构建输出
+.next
+
+# Nuxt.js build / generate output / Nuxt.js 构建/生成输出
+.nuxt
+
+# Gatsby files / Gatsby 文件
+public
+
+# Storybook build outputs / Storybook 构建输出
+.out
+.storybook-out
+
+# =============================================================================
+# 🔧 DEVELOPMENT TOOLS / 开发工具
+# =============================================================================
+# Typechain / Typechain 类型生成
+typechain
+typechain-types
+
+# Hardhat files / Hardhat 文件
+cache
+
+# =============================================================================
+# 💾 BACKUP FILES / 备份文件
+# =============================================================================
+# Backup files / 备份文件
 *.bak
 *.backup
+
+# =============================================================================
+# 📋 WHY THESE FILES ARE IGNORED / 为什么这些文件被忽略？
+# =============================================================================
+# 
+# 1. BUILD FILES / 构建文件 - Can be regenerated from source code / 可以从源代码重新生成
+# 2. DEPENDENCIES / 依赖文件 - Can be reinstalled via package.json / 可以通过 package.json 重新安装
+# 3. DATA FILES / 数据文件 - Contain runtime data, shouldn't be version controlled / 包含运行时数据，不应该版本控制
+# 4. CONFIG FILES / 配置文件 - May contain sensitive information (API keys) / 可能包含敏感信息（API 密钥）
+# 5. LOG FILES / 日志文件 - Generated at runtime, no need for version control / 运行时生成，不需要版本控制
+# 6. IDE FILES / IDE 文件 - Personal development environment config, shouldn't be shared / 个人开发环境配置，不应该共享
+#
+# =============================================================================
+# 📋 RECOMMENDED FILES TO KEEP / 建议保留的文件
+# =============================================================================
+#
+# ✅ KEEP THESE FILES / 保留这些文件:
+# - package.json - Project dependency configuration / 项目依赖配置
+# - package-lock.json - Dependency version lock (optional) / 依赖版本锁定（可选）
+# - README.md - Project documentation / 项目文档
+# - src/ - Source code / 源代码
+# - abis/ - Contract ABI files / 合约 ABI 文件
+# - schema.graphql - GraphQL schema definition / GraphQL 模式定义
+# - subgraph.yaml - Subgraph configuration / 子图配置
+# - docker-compose.yml - Docker configuration / Docker 配置
+# - scripts/ - Automation scripts / 自动化脚本
+# - queries/ - Example queries / 示例查询
+#
+# =============================================================================
