@@ -19,18 +19,23 @@ services:
       postgres_pass: let-me-in
       postgres_db: graph-node
       ipfs: "ipfs:5001"
-      ethereum: "mainnet:https://mainnet.infura.io/v3/6b6d38b00ee34c9cb96a3a38614c3354"
+      ethereum: "mainnet:http://ethereum-geth-node:8545"
       GRAPH_LOG: info
       GRAPH_GRAPHQL_HTTP_PORT: 8000
       GRAPH_GRAPHQL_WS_PORT: 8001
+    networks:
+      - graph-network
+      - ethereum-node_ethereum-network
   ipfs:
     image: ipfs/kubo:v0.17.0
     ports:
       - "5001:5001"
     volumes:
       - ./data/ipfs:/data/ipfs
+    networks:
+      - graph-network
   postgres:
-    image: postgres:14
+    image: postgres:17
     ports:
       - "5432:5432"
     command:
@@ -50,3 +55,11 @@ services:
       POSTGRES_INITDB_ARGS: "-E UTF8 --locale=C"
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
+    networks:
+      - graph-network
+
+networks:
+  graph-network:
+    driver: bridge
+  ethereum-node_ethereum-network:
+    external: true
