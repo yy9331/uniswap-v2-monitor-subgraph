@@ -19,13 +19,13 @@ services:
       postgres_pass: let-me-in
       postgres_db: graph-node
       ipfs: "ipfs:5001"
-      ethereum: "mainnet:http://ethereum-geth-node:8545"
+      ethereum: "mainnet:http://ethereum-geth-light-node:8545"
       GRAPH_LOG: info
       GRAPH_GRAPHQL_HTTP_PORT: 8000
       GRAPH_GRAPHQL_WS_PORT: 8001
     networks:
       - graph-network
-      - ethereum-node_ethereum-network
+      - ethereum-node_ethereum-light-network
   ipfs:
     image: ipfs/kubo:v0.17.0
     ports:
@@ -61,5 +61,5 @@ services:
 networks:
   graph-network:
     driver: bridge
-  ethereum-node_ethereum-network:
+  ethereum-node_ethereum-light-network:
     external: true
